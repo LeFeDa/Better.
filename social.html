@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn & Social Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="style.css" rel="stylesheet" >
+  <style>
+
+
+
+
+
+
+      .hero button {
+      padding: 1rem 2.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: rgb(255, 255, 255);
+      color: #000000;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+
+    .hero button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+
+    /* Features */
+    .features{
+      padding:5rem 3rem;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;
+    }
+    .feature{
+      background:white;border-radius:20px;padding:2rem;text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);transition:0.4s;cursor:pointer;
+    }
+    .feature:hover{transform:translateY(-10px);box-shadow:0 25px 35px rgba(0,0,0,0.15)}
+    .feature i{font-size:3rem;margin-bottom:1rem;color:#ff5722}
+    .feature h3{margin-bottom:0.5rem;font-size:1.3rem;font-weight:600}
+
+    .animate{opacity:0;transform:translateY(50px);transition:0.8s}
+    .animate.show{opacity:1;transform:translateY(0)}
+
+    /* Video Section */
+    .videos{padding:4rem 3rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;}
+    .video-card{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,0.1);}
+    .video-card iframe{width:100%;height:200px;border:0;}
+    .video-card h4{padding:1rem;font-weight:600;font-size:1rem;}
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="main.html"><h1>Better.</h1></a>
+
+  <!-- Hamburger Icon -->
+  <div class="menu-btn" id="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu">
+      <a href="contact.html">Contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+      <a href="contact.html">contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Learn • Build • Connect</h2>
+  <p>Udemy & YouTube Style Learning, Social Community & Discord</p>
+  <a href="#features"><button>Start Now</button></a>
+</section>
+
+<section id="features" class="features">
+  <div class="feature animate">
+    <i class="fab fa-youtube"></i>
+    <h3>Video Learning</h3>
+    <p>Tutorials, Streams und Kurse zum Mitmachen und Lernen.</p>
+  </div>
+  <div class="feature animate">
+    <i class="fas fa-laptop-code"></i>
+    <h3>Build Projects</h3>
+    <p>Praktische Projekte, Code & Hardware bauen, direkt umsetzen.</p>
+  </div>
+  <div class="feature animate">
+    <i class="fab fa-discord"></i>
+    <h3>Community</h3>
+    <p>Trete unserer Discord Community bei, tausche dich aus, wachse gemeinsam.</p>
+  </div>
+  <div class="feature animate">
+    <i class="fas fa-award"></i>
+    <h3>Achievements</h3>
+    <p>Erfolge sammeln, Badges verdienen und Lernfortschritt visualisieren.</p>
+  </div>
+</section>
+
+<section id="videos" class="videos">
+  <div class="video-card animate">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    <h4>Getting Started with Modern Web</h4>
+  </div>
+  <div class="video-card animate">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    <h4>Learn Social Media Marketing</h4>
+  </div>
+  <div class="video-card animate">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    <h4>Build Your First App</h4>
+  </div>
+</section>
+
+<footer id="community">
+  <p>© 2025 LearnHub | Kontakt: <a href="mailto:learnhub@studio.com">learnhub@studio.com</a></p>
+  <p>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-discord"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+  </p>
+</footer>
+
+  <script>
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("show");
+  });
+
+
+    // Scroll Animation für Features
+    const elements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

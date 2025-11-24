@@ -1,0 +1,263 @@
+/* Standard-Stil (Desktop-Large) */
+body {
+  font-size: 1rem;
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #f0f2f5;
+      color: #000000;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    
+
+
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #000000;
+    }
+
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      color: #000000;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background: #000000;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      color: #000000;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Desktop Menu */
+.desktop-menu {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hamburger Button */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  width: 28px;
+  height: 3px;
+  background: #000;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#mobile-menu a {
+  padding: 10px 0;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
+/* --- MEDIA QUERY: Aktiviert Mobile Menü --- */
+@media (max-width: 768px) {
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  #mobile-menu.show {
+    display: flex;
+  }
+
+  /* Animation Hamburger → X */
+  .menu-btn.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-btn.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+
+        /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #afcafd, #ebb050);
+      color: white;
+      text-align: center;
+      padding: 0 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+        .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1.7s ease forwards;
+      opacity: 0;
+    }
+
+
+        /* Kontakt Footer */
+    footer {
+      background: #000000;
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    footer a {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+
+
+
+
+
+/* Desktop / große Bildschirme */
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.1rem;
+  }
+}
+
+/* Laptop / mittlere Bildschirme */
+@media (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet / kleine Laptops */
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h2.section-title {
+    font-size: 2rem;
+    margin: 3rem 1rem 2rem 1rem;
+  }
+
+  .member {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  nav a {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile / Smartphones */
+@media (max-width: 767px) {
+  body {
+    font-size: 0.9rem;
+  }
+
+  h2.section-title {
+    font-size: 1.8rem;
+    margin: 2.5rem 1rem 1.5rem 1rem;
+  }
+
+  .member {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+}
+
+/* Sehr*

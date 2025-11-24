@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" >
+  <style>
+
+
+
+
+
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0;
+      }
+    }
+
+    /* Main content spacing */
+    main {
+      padding-top: 100px; /* Platz für fixen Header */
+      display: flex;
+      justify-content: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Kontakt-Formular */
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .contact-form h2 {
+      text-align: center;
+      color: #000000;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 0.9rem;
+      background: #000000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #000000;
+
+    }
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="main.html"><h1>Better.</h1></a>
+
+  <!-- Hamburger Icon -->
+  <div class="menu-btn" id="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu">
+      <a href="contact.html">Contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+      <a href="contact.html">contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+</header>
+
+  <main>
+    <form class="contact-form" action="mailto:deineemail@example.com" method="post" enctype="text/plain" id="contact">
+      <h2>Kontakt & Bestellung</h2>
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="Name" placeholder="Ihr Name" required>
+
+      <label for="email">E-Mail</label>
+      <input type="email" id="email" name="E-Mail" placeholder="Ihre E-Mail" required>
+
+      <label for="phone">Telefonnummer</label>
+      <input type="tel" id="phone" name="Telefon" placeholder="Ihre Telefonnummer" required>
+
+      <label for="product">Bestellmöglichkeiten / Produkt</label>
+      <select id="product" name="Produkt" required>
+        <option value="">-- Bitte wählen --</option>
+        <option value="Produkt A">Prototypen bauen</option>
+        <option value="Produkt B">Elektronik reparieren</option>
+        <option value="Produkt C">BauIdeen erweitern</option>
+        <option value="Produkt C">Community beitreten</option>
+        <option value="Produkt C">Elektroniker kontaktieren</option>
+      </select>
+
+      <label for="message">Ihre Nachricht / Details</label>
+      <textarea id="message" name="Nachricht" rows="4" placeholder="Geben Sie hier weitere Details ein..."></textarea>
+
+      <button type="submit">Absenden</button>
+    </form>
+  </main>
+
+
+  <script>
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("show");
+  });
+
+
+    // Scroll Animation für Features
+    const elements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

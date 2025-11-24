@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team & Über Uns</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" >
+  <style>
+
+    
+    .onlyhere{
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      padding: 6rem 0.5rem 6rem 0.5rem;
+      max-width: 1800px;
+      margin: auto;
+    }
+
+
+    .member {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .member img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      max-height: 300px;
+    }
+
+    .member-text h3 {
+      color: #000000;
+      margin-bottom: 0.5rem;
+    }
+
+    .member-text p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+
+
+
+    /* Animation */
+    .animate {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <a href="main.html"><h1>Better.</h1></a>
+
+  <!-- Hamburger Icon -->
+  <div class="menu-btn" id="menu-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu">
+      <a href="contact.html">Contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+
+  <!-- Desktop Menu -->
+  <nav class="desktop-menu">
+      <a href="contact.html">contact</a>
+      <a href="team.html">Team</a>
+  </nav>
+</header>
+
+
+  <div class="onlyhere">
+    <div class="member animate">
+      <img src="../B/Better..png_backgorund.png" alt="Person 1">
+      <div class="member-text">
+        <h3>Butuman Lemuel</h3>
+        <p>Butuman Lemuel ist unsere Spezialist für Logik und Software. Er entwickelt kreative Lösungen und sorgt dafür, dass jedes Projekt funktionsfähig wird.</p>
+      </div>
+    </div>
+
+    <div class="member animate">
+      <img src="../B/Better..png_backgorund.png" alt="Person 2">
+      <div class="member-text">
+        <h3>Fechete Lemuel</h3>
+        <p>Fechete Lemuel ist unser Experte für Elektronik und Reparaturen und hält gleichzeitig unsere Community zusammen. Mit seinem Know-how verbessert er bestehende Bauteile und erweitert deren Funktionen.</p>
+      </div>
+    </div>
+
+    <div class="member animate">
+      <img src="../B/Better..png_backgorund.png" alt="Person 3">
+      <div class="member-text">
+        <h3>Popescu Paul</h3>
+        <p>Popescu Paul übernimmt fehlende Aufbauten und gestaltet das Design für jedes einzelne Projekt. Er sorgt dafür, dass jedes Puzzle perfekt zusammenpasst.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("show");
+  });
+
+
+    // Scroll Animation für Features
+    const elements = document.querySelectorAll('.animate');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.3 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
